@@ -1045,7 +1045,7 @@ const NotepadEditor = ({ notepadId, onNavigate }) => {
 
       {/* 3. Dropdown Menu Bar (File, Edit, Insert, View, Help) wrapped in menu-bar-wrapper */}
       {user && (
-        <div className="bg-white dark:bg-slate-900 px-4 py-1.5 border-b border-gray-200 dark:border-slate-850 transition-colors select-none toolbar-scrollable">
+        <div className="bg-white dark:bg-slate-900 px-4 py-1.5 flex items-center text-xs font-semibold border-b border-gray-200 dark:border-slate-850 transition-colors select-none">
           <div className="menu-bar-wrapper flex items-center space-x-1 relative">
           
           {/* File Menu */}
@@ -1314,7 +1314,7 @@ const NotepadEditor = ({ notepadId, onNavigate }) => {
 
       {/* 4. Toolbar Row (Revamped colors & high contrast icons) */}
       {user && (
-        <div className="bg-slate-100 dark:bg-slate-800 px-4 py-2 border-b border-gray-255 dark:border-slate-855 transition-colors select-none toolbar-scrollable gap-1.5">
+        <div className="bg-slate-100 dark:bg-slate-800 px-4 py-2 flex flex-wrap items-center gap-1.5 border-b border-gray-255 dark:border-slate-855 transition-colors select-none">
         
         {/* Document operations */}
         <button
