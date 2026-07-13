@@ -32,4 +32,21 @@
   .animate-slideOutRight {
     animation: slideOutRight 0.3s ease-out;
   }
+
+  .toolbar-scrollable {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .toolbar-scrollable::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .toolbar-scrollable > * {
+    flex-shrink: 0;
+  }
 }

@@ -966,12 +966,12 @@ const NotepadEditor = ({ notepadId, onNavigate }) => {
               <span>Back</span>
             </button>
             
-            <div className="flex items-center space-x-2 min-w-0">
+            <div className="flex items-center space-x-2 min-w-0 flex-1 sm:flex-initial">
               <input
                 type="text"
                 value={title}
                 onChange={(e) => updateTitle(e.target.value)}
-                className="text-sm font-semibold bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 px-3.5 py-1.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-900 dark:text-white w-48 sm:w-60 truncate"
+                className="text-sm font-semibold bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 px-3.5 py-1.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-900 dark:text-white flex-1 sm:w-60 sm:flex-none truncate"
                 placeholder="Untitled Notepad"
                 disabled={!user}
               />
@@ -1045,7 +1045,7 @@ const NotepadEditor = ({ notepadId, onNavigate }) => {
 
       {/* 3. Dropdown Menu Bar (File, Edit, Insert, View, Help) wrapped in menu-bar-wrapper */}
       {user && (
-        <div className="bg-white dark:bg-slate-900 px-4 py-1.5 flex items-center text-xs font-semibold border-b border-gray-200 dark:border-slate-850 transition-colors select-none">
+        <div className="bg-white dark:bg-slate-900 px-4 py-1.5 border-b border-gray-200 dark:border-slate-850 transition-colors select-none toolbar-scrollable">
           <div className="menu-bar-wrapper flex items-center space-x-1 relative">
           
           {/* File Menu */}
@@ -1314,7 +1314,7 @@ const NotepadEditor = ({ notepadId, onNavigate }) => {
 
       {/* 4. Toolbar Row (Revamped colors & high contrast icons) */}
       {user && (
-        <div className="bg-slate-100 dark:bg-slate-800 px-4 py-2 flex flex-wrap items-center gap-1.5 border-b border-gray-255 dark:border-slate-855 transition-colors select-none">
+        <div className="bg-slate-100 dark:bg-slate-800 px-4 py-2 border-b border-gray-255 dark:border-slate-855 transition-colors select-none toolbar-scrollable gap-1.5">
         
         {/* Document operations */}
         <button

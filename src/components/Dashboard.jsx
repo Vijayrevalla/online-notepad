@@ -95,13 +95,13 @@ const Dashboard = ({ onNavigate }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 flex transition-colors duration-200">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 flex flex-col md:flex-row transition-colors duration-200">
       {/* Sidebar */}
-      <div className="w-64 bg-slate-700 dark:bg-slate-900 text-white border-r border-transparent dark:border-slate-800 transition-colors duration-200">
-        <div className="p-6 border-b border-slate-600 dark:border-slate-800">
-          <h2 className="text-xl font-semibold truncate">Welcome {user.username}</h2>
+      <div className="w-full md:w-64 bg-slate-700 dark:bg-slate-900 text-white border-b md:border-b-0 md:border-r border-transparent dark:border-slate-800 transition-colors duration-200 flex-shrink-0">
+        <div className="p-4 md:p-6 border-b border-slate-600 dark:border-slate-800">
+          <h2 className="text-lg md:text-xl font-semibold truncate">Welcome {user.username}</h2>
         </div>
-        <nav className="mt-6">
+        <nav className="mt-2 md:mt-6 flex md:flex-col overflow-x-auto md:overflow-x-visible whitespace-nowrap">
           {sidebarItems.map(item => (
             <button
               key={item.key}
@@ -112,8 +112,8 @@ const Dashboard = ({ onNavigate }) => {
                   setActiveTab(item.key);
                 }
               }}
-              className={`w-full flex items-center space-x-3 px-6 py-3 text-left hover:bg-slate-600 dark:hover:bg-slate-800 transition-colors cursor-pointer ${
-                activeTab === item.key && item.key !== 'create' ? 'bg-slate-600 dark:bg-slate-800 border-l-4 border-blue-500' : 'pl-7'
+              className={`flex-shrink-0 w-auto md:w-full flex items-center space-x-3 px-4 py-3 md:px-6 md:py-3 text-left hover:bg-slate-600 dark:hover:bg-slate-800 transition-colors cursor-pointer ${
+                activeTab === item.key && item.key !== 'create' ? 'bg-slate-600 dark:bg-slate-800 border-b-2 md:border-b-0 md:border-l-4 border-blue-500 font-semibold' : ''
               }`}
             >
               <item.icon className="h-5 w-5" />

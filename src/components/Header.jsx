@@ -20,7 +20,7 @@ const Header = ({ currentPage, onNavigate }) => {
   return (
     <header className="bg-slate-700 dark:bg-slate-900 text-white shadow-lg border-b border-slate-600 dark:border-slate-800 transition-colors duration-200">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex flex-col sm:flex-row items-center justify-between py-3 sm:py-0 sm:h-16 gap-3 sm:gap-0">
           <div 
             className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => onNavigate('home')}
@@ -29,7 +29,7 @@ const Header = ({ currentPage, onNavigate }) => {
             <span className="text-xl font-semibold">Online Notepad</span>
           </div>
 
-          <nav className="flex items-center space-x-4">
+          <nav className="flex flex-wrap items-center justify-center gap-2 sm:gap-0 sm:space-x-4">
             {!user ? (
               <>
                 <button
