@@ -109,11 +109,7 @@ const Login = ({ onNavigate }) => {
             </div>
           </form>
 
-          <div className="mt-6 text-center text-xs text-gray-500 dark:text-slate-400 border-t dark:border-slate-700 pt-4">
-            <p className="font-semibold text-gray-600 dark:text-slate-300 mb-1">Demo credentials:</p>
-            <p>Admin: <code className="bg-gray-100 dark:bg-slate-900 px-1 py-0.5 rounded font-mono">admin</code> / <code className="bg-gray-100 dark:bg-slate-900 px-1 py-0.5 rounded font-mono">admin123</code></p>
-            <p>User: <code className="bg-gray-100 dark:bg-slate-900 px-1 py-0.5 rounded font-mono">abi</code> / <code className="bg-gray-100 dark:bg-slate-900 px-1 py-0.5 rounded font-mono">user123</code></p>
-          </div>
+
         </div>
       </div>
     </div>
