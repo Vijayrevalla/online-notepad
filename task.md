@@ -1,0 +1,5 @@
+- [x] Revamp dark mode UI contrast and colors for menus, text inputs, and dropdown selectors in `NotepadEditor.jsx`
+- [x] Implement system file loader for File -> Open using hidden file input ref in `NotepadEditor.jsx`
+- [x] Implement font compatibility mapping for old database values (sans, mono, text-base, text-sm, etc.) in `NotepadEditor.jsx`
+- [x] Update print formatting to apply font styles/sizes and embed attached photos in the print layout in `NotepadEditor.jsx`
+- [x] Verify functionality manually and write `walkthrough.md`

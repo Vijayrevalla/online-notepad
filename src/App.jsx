@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ToastProvider } from './context/ToastContext';
+import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -57,8 +58,8 @@ const AppContent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {(currentPage !== 'home' && currentPage !== 'login' && currentPage !== 'signup' && currentPage !== 'notepad') && (
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-slate-100 transition-colors duration-200">
+      {currentPage !== 'notepad' && (
         <Header currentPage={currentPage} onNavigate={navigate} />
       )}
       {renderPage()}
@@ -69,9 +70,11 @@ const AppContent = () => {
 function App() {
   return (
     <AuthProvider>
-      <ToastProvider>
-        <AppContent />
-      </ToastProvider>
+      <ThemeProvider>
+        <ToastProvider>
+          <AppContent />
+        </ToastProvider>
+      </ThemeProvider>
     </AuthProvider>
   );
 }
