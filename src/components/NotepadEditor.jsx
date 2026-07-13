@@ -790,6 +790,7 @@ const NotepadEditor = ({ notepadId, onNavigate }) => {
               padding: 20px; 
               border: 1px solid #e2e8f0; 
               border-radius: 8px;
+              page-break-inside: auto;
             }
             .photos-title {
               font-size: 18px; 
@@ -799,13 +800,23 @@ const NotepadEditor = ({ notepadId, onNavigate }) => {
               padding-bottom: 8px;
               color: #334155;
             }
+            @media print {
+              .content {
+                background: transparent !important;
+                border: none !important;
+                padding: 0 !important;
+              }
+              body {
+                padding: 20px !important;
+              }
+            }
           </style>
         </head>
         <body>
           <h1>${title || 'Untitled Notepad'}</h1>
           <div class="meta">Created: ${new Date(notepad.createdAt).toLocaleString()} | Code: ${notepad.code || 'N/A'}</div>
           
-          <pre class="content">${content || 'Empty document'}</pre>
+          <div id="print-content" class="content"></div>
           
           ${images.length > 0 ? `
             <h2 class="photos-title">Attached Photos</h2>
@@ -817,10 +828,44 @@ const NotepadEditor = ({ notepadId, onNavigate }) => {
       </html>
     `);
     
+    printWindow.document.getElementById('print-content').textContent = content || 'Empty document';
     printWindow.document.close();
-    setTimeout(() => {
-      printWindow.print();
-    }, 250);
+    
+    const printDoc = printWindow.document;
+    const imagesToLoad = printDoc.querySelectorAll('img');
+    
+    const triggerPrint = () => {
+      setTimeout(() => {
+        printWindow.print();
+      }, 250);
+    };
+
+    if (imagesToLoad.length > 0) {
+      let loadedCount = 0;
+      imagesToLoad.forEach(img => {
+        if (img.complete) {
+          loadedCount++;
+          if (loadedCount === imagesToLoad.length) {
+            triggerPrint();
+          }
+        } else {
+          img.onload = () => {
+            loadedCount++;
+            if (loadedCount === imagesToLoad.length) {
+              triggerPrint();
+            }
+          };
+          img.onerror = () => {
+            loadedCount++;
+            if (loadedCount === imagesToLoad.length) {
+              triggerPrint();
+            }
+          };
+        }
+      });
+    } else {
+      triggerPrint();
+    }
   };
 
   // Keyboard Shortcuts Listener
